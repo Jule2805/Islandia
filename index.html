@@ -58,19 +58,19 @@
     <h2>💖 Sorpresa final ❤️‍🩹</h2>
     <p id="finalText">¡Mira tu regalo final!</p>
     
-    <!-- Video en vez de imagen -->
-    <video id="finalVideo" controls autoplay muted style="max-width:100%;display:block;margin:12px auto;border-radius:8px;">
-      <source src="imagenes/Video_final.mp4" type="video/mp4">
-      Tu navegador no soporta vídeo HTML5.
-    </video>
-    
-    <div style="margin-top:12px">
-      <button id="closeFinal" class="navBtn">Cerrar</button>
-    </div>
-  </div>
+    <!-- Video final desde YouTube -->
+<div style="max-width:100%;display:flex;justify-content:center;margin:12px auto;border-radius:8px;overflow:hidden;">
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/2PEdbxPTFs8?autoplay=1&mute=0"
+    title="Sorpresa final"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    style="border-radius:8px;max-width:100%;aspect-ratio:16/9;">
+  </iframe>
 </div>
-
-
   <!-- Audios -->
   <audio id="ambient" loop src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2b1a0a2f1a.mp3?filename=ambient-aurora-11083.mp3"></audio>
   <audio id="pageSound" src="https://www.soundjay.com/button/sounds/button-16.mp3"></audio>
@@ -79,3 +79,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
