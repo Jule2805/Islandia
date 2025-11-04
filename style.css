@@ -1,0 +1,163 @@
+:root{
+  --accent:#20c997;
+  --bg-dark:#02030a;
+  --glass-bg: rgba(255,255,255,0.12);
+  --glass-border: rgba(255,255,255,0.18);
+  --book-brown:#ab7a41; /* dorado vikingo */
+  --text-dark:#222;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg-dark);font-family:Inter,system-ui,-apple-system,Arial;color:#fff}
+button{font:inherit;cursor:pointer;border:0}
+
+/* Modal initial */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.95);z-index:400}
+.modalBox{max-width:720px;padding:22px;border-radius:12px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));backdrop-filter:blur(6px)}
+.modalBox h1{margin:0 0 8px;font-size:1.3rem}
+.modalBox p{margin:0 0 14px;color:rgba(255,255,255,0.9)}
+.btn-accent{background:var(--accent);color:#022;padding:10px 18px;border-radius:10px;font-weight:700}
+.smallNote{margin-top:10px;color:rgba(255,255,255,0.85)}
+
+/* Aurora canvas full */
+#auroraCanvas{position:fixed;left:0;top:0;width:100%;height:100%;z-index:0;display:block}
+
+/* Main hidden until start */
+.hidden{display:none}
+
+/* Page container */
+.bookWrap{position:relative;z-index:10;display:flex;justify-content:center;align-items:center;padding:18px 12px}
+.page.singlePage{
+  width:94%;
+  max-width:720px;
+  min-height:62vh;
+  padding:18px;
+  border-radius:14px;
+  position:relative;
+  z-index:12;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Glassmorphism card */
+.glassCard{
+  width:100%;
+  padding:20px;
+  border-radius:12px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px) saturate(1.05);
+  -webkit-backdrop-filter: blur(8px) saturate(1.05);
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+
+/* icon + title + text */
+.iconWrap{width:100%;display:flex;justify-content:center;align-items:center}
+.iconEmoji{font-size:2.4rem}
+.titleText{font-weight:800;font-size:1.05rem}
+.bodyText{font-size:1rem;line-height:1.6;padding:6px 8px;max-width:88%;text-align:center}
+
+/* vegvisir image */
+.vegvisir img{max-width:160px;height:auto;display:block;margin:6px auto}
+
+/* Controls (circular dorado) */
+.controls{display:flex;gap:18px;justify-content:center;margin-top:14px;z-index:20}
+.circleBtn{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(180deg,#d9b36a,#a56f2e);
+  color:#111;font-weight:800;font-size:1.1rem;
+  box-shadow:0 8px 22px rgba(165,111,46,0.28);
+  display:flex;align-items:center;justify-content:center;
+  touch-action:manipulation;
+}
+
+/* final modal */
+.finalModal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0.75),rgba(0,0,0,0.85));z-index:500}
+.finalBox{background:#fff;color:#111;padding:18px;border-radius:12px;max-width:720px;text-align:center}
+
+/* fade helpers */
+.fade-out{opacity:0;transition:opacity 360ms ease}
+.fade-in{opacity:1;transition:opacity 360ms ease}
+
+/* Responsive tweaks */
+@media(min-width:900px){
+  .page.singlePage{min-height:56vh;max-width:760px}
+}
+@media(max-width:420px){
+  .page.singlePage{padding:14px;min-height:60vh}
+  .iconEmoji{font-size:2rem}
+  .titleText{font-size:1rem}
+  .bodyText{font-size:0.98rem}
+  .circleBtn{width:50px;height:50px}
+}
+.pageHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+  z-index: 15; /* aseguramos que esté sobre el canvas */
+  position: relative;
+}
+
+.pageHeader h1 {
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.32);
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.titleText{
+  font-weight:800;
+  font-size:1.05rem;
+  color:#fff;
+}
+
+.bodyText{
+  font-size:1rem;
+  line-height:1.6;
+  padding:6px 8px;
+  max-width:88%;
+  text-align:center;
+  color:#fff;
+}
+.bottomControls{
+  position:fixed;
+  bottom:16px;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  z-index:50;
+  backdrop-filter:blur(6px) saturate(1.2);
+  -webkit-backdrop-filter:blur(6px) saturate(1.2);
+  background:rgba(0,0,0,0.18);
+  padding:10px 0;
+  border-top:1px solid rgba(255,255,255,0.18);
+}
+
+.bottomBtn{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:linear-gradient(180deg,#d9b36a,#a56f2e);
+  box-shadow:0 6px 22px rgba(0,0,0,0.55);
+  font-weight:900;
+  font-size:1.2rem;
+  color:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  touch-action:manipulation;
+}
+

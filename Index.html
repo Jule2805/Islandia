@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Libro vikingo — Islandia</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="imagenes/ICONO.png" type="image/png">
+<link rel="apple-touch-icon" href="imagenes/ICONO.png">
+<meta name="theme-color" content="#20c997">
+
+</head>
+<body>
+
+  <!-- Modal inicial -->
+  <div id="welcomeModal" class="modal" role="dialog" aria-modal="true">
+    <div class="modalBox">
+      <h1>⚠️ Atención viajera del amor ⚠️</h1>
+      <p>Esta experiencia tiene sonido y magia islandesa. Sube un poco el volumen y pulsa cuando estés lista.</p>
+      <p>Ánna og Júlí — Ást á Íslandi</p>
+      <button id="startBtn" class="btn-accent">Vamos juntas</button>
+      <p class="smallNote">Te amo mucho mucho y estoy muy feliz de hacer este viaje juntas 💖</p>
+    </div>
+  </div>
+
+  <!-- Canvas auroras -->
+  <canvas id="auroraCanvas"></canvas>
+
+  <!-- Contenido principal: una sola página visible -->
+  <main id="mainContent" class="hidden" aria-live="polite">
+    <header class="pageHeader">
+      <h1>Libro de Sagas - Un librito mini de razones por las que te amo a lo islandes</h1>
+    </header>
+
+    <section class="bookWrap">
+      <article class="page singlePage" id="singlePage" role="document" aria-label="Página del libro">
+        <div class="glassCard" id="pageInner">
+          <div id="iconWrap" class="iconWrap" aria-hidden="true"></div>
+          <div class="titleText" id="titleText">Razón 1</div>
+          <div class="bodyText" id="reasonText"></div>
+          <div id="vegvisirImg" class="vegvisir" aria-hidden="true"></div>
+        </div>
+      </article>
+    </section>
+
+    <nav class="controls" aria-label="Navegación del libro">
+      <button id="prevBtn" class="circleBtn" aria-label="Anterior">◀</button>
+      <button id="nextBtn" class="circleBtn" aria-label="Siguiente">▶</button>
+    </nav>
+  </main>
+<nav class="bottomControls">
+  <button id="prevBtn2" class="bottomBtn">◀</button>
+  <button id="nextBtn2" class="bottomBtn">▶</button>
+</nav>
+
+  <div id="finalModal" class="finalModal" role="dialog" aria-modal="true">
+  <div class="finalBox">
+    <h2>💖 Sorpresa final ❤️‍🩹</h2>
+    <p id="finalText">¡Mira tu regalo final!</p>
+    
+    <!-- Video en vez de imagen -->
+    <video id="finalVideo" controls autoplay muted style="max-width:100%;display:block;margin:12px auto;border-radius:8px;">
+      <source src="imagenes/Video_final.mp4" type="video/mp4">
+      Tu navegador no soporta vídeo HTML5.
+    </video>
+    
+    <div style="margin-top:12px">
+      <button id="closeFinal" class="navBtn">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Audios -->
+  <audio id="ambient" loop src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2b1a0a2f1a.mp3?filename=ambient-aurora-11083.mp3"></audio>
+  <audio id="pageSound" src="https://www.soundjay.com/button/sounds/button-16.mp3"></audio>
+  <audio id="finalSound" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
